@@ -1,6 +1,6 @@
 #pragma once
 #include<cstdint>
-#include<hitpointtypes.h>           
+#include"hitpointtypes.h"           
 class hp
 {
 private:
@@ -11,7 +11,7 @@ public:
     hp(hpType cHP, hpType mHP): CurrentHP(cHP), MaxHP(mHP){
         if(CurrentHP > MaxHP) CurrentHP = MaxHP;
     }
-    ~hp();
+    ~hp(){};
     bool setMaxHP(hpType new_max_hp) {
         if (new_max_hp < 1)
             return false;
@@ -41,10 +41,3 @@ public:
    hpType getCurrentHP() {return CurrentHP;}
 };
 
-hp::hp(/* args */)
-{
-}
-
-hp::~hp()
-{
-}

@@ -8,7 +8,9 @@ private:
     hpType MaxHP;
 public:
     hp(): CurrentHP(1), MaxHP(1){}
-    hp(hpType cHP, hpType mHP): CurrentHP(cHP), MaxHP(mHP){}
+    hp(hpType cHP, hpType mHP): CurrentHP(cHP), MaxHP(mHP){
+        if(CurrentHP > MaxHP) CurrentHP = MaxHP;
+    }
     ~hp();
     bool setMaxHP(hpType new_max_hp) {
         if (new_max_hp < 1)

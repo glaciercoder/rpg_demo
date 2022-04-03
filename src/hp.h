@@ -1,6 +1,6 @@
 #pragma once
 #include<cstdint>
-#include"hitpointtypes.h"           
+using hpType = std::uint16_t;          
 class hp
 {
 private:

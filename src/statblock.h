@@ -1,5 +1,5 @@
 #pragma once
-#include "stattypes.h"
+using stattype = std::uint16_t;
 struct StatBlock
 {
 private:
@@ -10,4 +10,10 @@ public:
     explicit StatBlock(stattype s, stattype i) : strength(s), intellect(i){}
     stattype getStrenth(){return strength;}
     stattype getIntellect(){return intellect;}
+
+protected:
+    void increaseStats(stattype s, stattype i){
+        strength += s;
+        intellect += i;
+    }
 };

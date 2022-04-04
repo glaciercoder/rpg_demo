@@ -5,15 +5,22 @@
 class Cleric : public hp, public StatBlock, public LevelSystem
 {
 private:
-    void LeveUp() override{
+    void LevelUp() override{
          setMaxHP(HPGROWTH + getMaxHP());
+         increaseStats(STRGROWTH, INTGROWTH);
     }
 public: 
-    static const hpType HPGROWTH = (hpType)14u;
+    static const hpType HPGROWTH = (hpType)7u;
+    static const stattype STRGROWTH = (stattype)1u;
+    static const stattype INTGROWTH = (stattype)2u;
+
+    static const hpType BASEHP  = (hpType)14u;
     static const stattype BASESTR = (stattype)2u;
-    static const stattype BASEINT = (stattype)4u;
-    Cleric() : hp(HPGROWTH, HPGROWTH), StatBlock(BASESTR,BASEINT){}
+    static const stattype BASEINT = (stattype)3u;
+    Cleric() : hp(BASEHP, BASEHP), StatBlock(BASESTR,BASEINT){}
     ~Cleric(){};
+
+
 
 };
  

@@ -8,14 +8,16 @@ protected:
    leveltype CurrentLevel;
    exptype CurrentEXP; 
    exptype EXPToNextLevel;
-   void check_if_leveled(){
+   bool check_if_leveled(){
        static const exptype LEVELSCALAR = 2u;// increase by 2^n
 
-       if(CurrentEXP > EXPToNextLevel){
+       if(CurrentEXP >= EXPToNextLevel){
            ++CurrentLevel;
            LevelUp();
            EXPToNextLevel *= LEVELSCALAR;
+           return true;
        } 
+       return false;
    }
    virtual void LevelUp() = 0;
 private:
@@ -28,6 +30,11 @@ public:
 
     void gainEXP(exptype gained_exp){
         CurrentEXP += gained_exp;
-        check_if_leveled();
+        while (check_if_leveled()){}
     }
+
+    leveltype getlevel(){return CurrentLevel;}
+    exptype getCurrentEXP(){return CurrentEXP;}
+    exptype getEXPToNextLevel(){return EXPToNextLevel;}
+
 };

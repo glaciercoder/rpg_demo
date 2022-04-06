@@ -23,8 +23,6 @@ protected:
        return false;
    }
 private:
-
-    
 public:
     static const exptype LEVEL2AT = 100u;
     std::unique_ptr<PointWell> HP;

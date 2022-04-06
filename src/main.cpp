@@ -3,8 +3,7 @@
 #include "playercharacter.h"
 int main(int argc, char const *argv[])
 {
-    PlayerCharacter p1(new Warrior());
-
+    PlayerCharacter p1(new Cleric());
 
     for (int i = 0; i < 2; i++)
     {

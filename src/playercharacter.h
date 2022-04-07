@@ -61,6 +61,10 @@ public:
     welltype getMaxHP(){return pcclass->HP->getMax();}
     stattype getStrength(){return pcclass->getStrenth();}
     stattype getIntellect(){return pcclass->getIntellect();}
+    stattype getAgility(){return pcclass->getAgility();}
+    stattype getArmor(){return pcclass->getArmor();}
+    stattype getElementResistance(){return pcclass->getResistance();}
+    
 
     void gainEXP(exptype gain){return pcclass->gainEXP(gain);}
     void takeDamage(welltype amt){return pcclass->HP->reduce(amt);}

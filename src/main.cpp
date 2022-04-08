@@ -19,6 +19,7 @@ int main(int argc, char const *argv[])
             << "-ElemebtResistance:" << p1.getElementResistance() << '\n';
             if (i < 1) p1.gainEXP(100u);
     }
+    
   
     return 0;
 }

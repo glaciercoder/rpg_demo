@@ -23,5 +23,10 @@ int main(int argc, char const *argv[])
              std::cout << " -" << pc.name  << '\n';
         if (i < 1) p1.gainEXP(100u);
     }
+<<<<<<< HEAD
+=======
+    
+  
+>>>>>>> 462f3992e28eca0a8ebfaafc7ce4da52596be4ed
     return 0;
 }

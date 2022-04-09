@@ -25,3 +25,4 @@
 
 - Use `<cstdint>` to specify the size.
 - `static const` can not only be used as class data member type, it can also be used in class member function. This will reduce the overhead if the member function is called frequently. Especially for variables that are used just by one member function.
+- Use `enum class` will give enum members a scope, it's better to use it rather than enum.

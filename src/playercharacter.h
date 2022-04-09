@@ -3,6 +3,8 @@
 #include  "statblock.h"
 #include <memory>
 #include "pointwell.h"
+#include "ability.h"
+#include <vector>
 using exptype = std::uint64_t;
 using leveltype = std::uint16_t;
 class PlayerCharacterDelegate : public StatBlock
@@ -26,6 +28,8 @@ private:
 public:
     static const exptype LEVEL2AT = 100u;
     std::unique_ptr<PointWell> HP;
+    std::unique_ptr<PointWell> MP;
+    std::vector<Ability> Abilities;
     PlayerCharacterDelegate(): StatBlock(0u,0u), CurrentLevel(1u), CurrentEXP(0u), EXPToNextLevel(LEVEL2AT){
         HP = std::make_unique<PointWell>();
     }
@@ -59,11 +63,15 @@ public:
     exptype getEXPToNextLevel(){return pcclass->getEXPToNextLevel();}
     welltype getCurrentHP(){return pcclass->HP->getCurrentFulness();}
     welltype getMaxHP(){return pcclass->HP->getMax();}
+    welltype getCurrentMP(){return (pcclass->MP ?  pcclass->MP->getCurrentFulness() : 0);}
+    welltype getMaxMP(){return (pcclass->MP? pcclass->MP->getMax() : 0);}
+
     stattype getStrength(){return pcclass->getStrenth();}
     stattype getIntellect(){return pcclass->getIntellect();}
     stattype getAgility(){return pcclass->getAgility();}
     stattype getArmor(){return pcclass->getArmor();}
     stattype getElementResistance(){return pcclass->getResistance();}
+    const std::vector<Ability>& getAbilityList(){return pcclass->Abilities;}
     
 
     void gainEXP(exptype gain){return pcclass->gainEXP(gain);}

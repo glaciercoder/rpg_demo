@@ -5,8 +5,7 @@
 #include "pointwell.h"
 #include "ability.h"
 #include <vector>
-using exptype = std::uint64_t;
-using leveltype = std::uint16_t;
+#include "types.h"
 class PlayerCharacterDelegate : public StatBlock
 {
 protected:
@@ -40,6 +39,7 @@ public:
         while (check_if_leveled()){}
     }
 
+    void applyBuff(Buff b){ addNewBuff(b); }
     leveltype getlevel(){return CurrentLevel;}
     exptype getCurrentEXP(){return CurrentEXP;}
     exptype getEXPToNextLevel(){return EXPToNextLevel;}
@@ -71,10 +71,18 @@ public:
     stattype getAgility(){return pcclass->getAgility();}
     stattype getArmor(){return pcclass->getArmor();}
     stattype getElementResistance(){return pcclass->getResistance();}
+    stattype getTotalStrength(){return pcclass->getTotalStrenth();}
+    stattype getTotalIntellect(){return pcclass->getTotalIntellect();}
+    stattype getTotalAgility(){return pcclass->getTotalAgility();}
+    stattype getTotalArmor(){return pcclass->getTotalArmor();}
+    stattype getTotalElementResistance(){return pcclass->getTotalResistance();}
+
     const std::vector<Ability>& getAbilityList(){return pcclass->Abilities;}
     
 
     void gainEXP(exptype gain){return pcclass->gainEXP(gain);}
     void takeDamage(welltype amt){return pcclass->HP->reduce(amt);}
     void heal(welltype amt){return pcclass->HP->increaseCurrent(amt);}
+
+    void applyBuff(Buff buff){pcclass->applyBuff(buff);}
 };

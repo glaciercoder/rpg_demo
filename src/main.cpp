@@ -22,7 +22,7 @@ int main(int argc, char const *argv[])
         for (auto pc : AllAbilities)
              std::cout << " -" << pc.name  << '\n';
         if (i < 1) {
-            Buff arm_buff("StoneShield", 10, 0, 0, 0, 5, 0, true);
+            Buff arm_buff("StoneShield", 10, 0, 0, 0, 5, 0, false);
             p1.applyBuff(arm_buff);
             p1.gainEXP(100u);
         }

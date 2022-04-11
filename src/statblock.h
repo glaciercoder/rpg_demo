@@ -2,7 +2,6 @@
 #include "types.h"
 #include<vector>
 #include "buff.h"
-#include<iostream>
 class StatBlock
 {
 private:
@@ -10,7 +9,6 @@ private:
     CoreStats TotalStatsFromBuff;
         // Effect from buffs
     void recalculatebuffs(Buff b){
-        std::cout << "b.arm = " << b.buffstats.armor << std::endl; 
         if(b.isDebuff)    baseStats -= b.buffstats;
         else baseStats += b.buffstats;
     }
